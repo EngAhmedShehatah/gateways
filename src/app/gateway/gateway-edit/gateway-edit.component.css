@@ -1,0 +1,32 @@
+section {
+  margin: 1rem;
+}
+
+form {
+  margin: 1rem 0;
+}
+
+form .row {
+  margin-bottom: 1rem;
+}
+
+form .row mat-form-field {
+  width: 50%;
+}
+
+form .group {
+  margin: 0.5rem;
+}
+
+form .group mat-form-field:not(:first-child) {
+  margin-left: 0.5rem;
+}
+
+form .btns {
+  margin: 1rem 0;
+  text-align: right;
+}
+
+form .btns button:not(:last-child) {
+  margin-right: 0.5rem;
+}

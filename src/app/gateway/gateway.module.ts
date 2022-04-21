@@ -4,14 +4,18 @@ import {RouterModule, Routes} from '@angular/router';
 import {SharedModule} from '../shared/shared.module';
 
 import {GatewayListComponent} from './gateway-list/gateway-list.component';
+import {GatewayEditComponent} from './gateway-edit/gateway-edit.component';
 
 const routes: Routes = [
-  {path: '', component: GatewayListComponent}
+  {path: '', component: GatewayListComponent},
+  {path: 'add', component: GatewayEditComponent},
+  {path: 'edit/:id', component: GatewayEditComponent}
 ];
 
 @NgModule({
   declarations: [
-    GatewayListComponent
+    GatewayListComponent,
+    GatewayEditComponent
   ],
   imports: [
     CommonModule,

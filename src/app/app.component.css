@@ -1,0 +1,11 @@
+::ng-deep mat-toolbar {
+  position: sticky;
+  left: 0;
+  top: 0;
+  z-index: 1001;
+  border-bottom: 0.2rem solid #FFF;
+}
+
+section {
+  padding-bottom: 3rem;
+}

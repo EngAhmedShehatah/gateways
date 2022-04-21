@@ -1,0 +1,82 @@
+<section>
+  <button mat-raised-button color="primary" routerLink="/">
+    <mat-icon>arrow_back</mat-icon>
+    back
+  </button>
+  <form [formGroup]="gatewayForm" (ngSubmit)="onClickSave()">
+    <div class="row">
+      <mat-form-field appearance="fill">
+        <mat-label>serial number</mat-label>
+        <input matInput formControlName="serialNumber" required>
+        <mat-error *ngIf="gatewayForm.get('serialNumber').errors?.required">
+          serial number is required
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field appearance="fill">
+        <mat-label>name</mat-label>
+        <input matInput formControlName="name" required>
+        <mat-error *ngIf="gatewayForm.get('name').errors?.required">
+          name is required
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field appearance="fill">
+        <mat-label>IPv4</mat-label>
+        <input matInput formControlName="ipv4" required>
+        <mat-error *ngIf="gatewayForm.get('ipv4').errors?.required">
+          IPv4 is required
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="group" formArrayName="devices">
+      <h3>Devices</h3>
+      <div *ngFor="let deviceControl of gatewayForm.get('devices')['controls']">
+        <mat-form-field appearance="fill" [formGroup]="deviceControl">
+          <mat-label>UID</mat-label>
+          <input matInput formControlName="uid" required>
+          <mat-error *ngIf="deviceControl.get('uid').errors?.required">
+            uid is required
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill" [formGroup]="deviceControl">
+          <mat-label>vendor</mat-label>
+          <input matInput formControlName="vendor" required>
+          <mat-error *ngIf="deviceControl.get('vendor').errors?.required">
+            vendor is required
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill" [formGroup]="deviceControl">
+          <mat-label>date created</mat-label>
+          <input matInput formControlName="dateCreated" required>
+          <mat-error *ngIf="deviceControl.get('dateCreated').errors?.required">
+            date created is required
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill" [formGroup]="deviceControl">
+          <mat-label>status</mat-label>
+          <input matInput formControlName="status" required>
+          <mat-error *ngIf="deviceControl.get('status').errors?.required">
+            status is required
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <button mat-stroked-button color="primary" type="button" (click)="onClickAddDevice()">
+      <mat-icon>add</mat-icon>
+      Add New Device
+    </button>
+    <div class="btns">
+      <button mat-raised-button color="primary" type="submit">
+        <mat-icon>check</mat-icon>
+        Save
+      </button>
+      <button mat-raised-button color="warn" type="button" routerLink="/">
+        <mat-icon>close</mat-icon>
+        Cancel
+      </button>
+    </div>
+  </form>
+</section>
