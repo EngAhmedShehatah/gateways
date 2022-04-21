@@ -1,0 +1,21 @@
+section {
+  margin: 1rem;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  margin: 1rem 0;
+  font-size: 14px;
+  width: 100%;
+}
+
+td, th {
+  width: 25%;
+}
+
+table tr td button {
+  margin: 0 0.2rem;
+}
