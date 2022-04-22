@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  domain: 'https://gateways-backend.herokuapp.com/api/'
+  // domain: 'https://gateways-backend.herokuapp.com/api/'
+  domain: 'http://localhost:3000/api/'
 };
 
 /*
