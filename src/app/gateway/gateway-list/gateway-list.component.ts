@@ -2,21 +2,7 @@ import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
-
-export interface Gateway {
-  _id: string;
-  serialNumber: string;
-  name: string;
-  ipv4: string;
-  devices: Device[];
-}
-
-export interface Device {
-  uid: number;
-  vendor: string;
-  dateCreated: string;
-  status: string; // online or offline
-}
+import {Gateway} from '../gateway.modal';
 
 @Component({
   selector: 'app-gateway-list',
@@ -33,7 +19,7 @@ export class GatewayListComponent implements OnInit, AfterViewInit {
 
   constructor() {
     const gateways: Gateway[] = [
-      { _id: '', serialNumber: '12345678910', name: 'test', ipv4: '192.168.1.1', devices: [] }
+      { _id: '', serialNumber: 12345678910, name: 'test', ipv4: '192.168.1.1', devices: [] }
     ];
     this.dataSource = new MatTableDataSource<Gateway>(gateways);
   }

@@ -7,6 +7,8 @@ import {SharedModule} from './shared/shared.module';
 import {GatewayModule} from './gateway/gateway.module';
 
 import {AppComponent} from './app.component';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {Interceptor} from './services/interceptor.service';
 
 const routes: Routes = [
   {path: '', loadChildren: () => GatewayModule}
@@ -20,9 +22,16 @@ const routes: Routes = [
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
+    HttpClientModule,
     SharedModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: Interceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
